@@ -45,6 +45,8 @@ let g:netrw_winsize = 15
 inoremap <C-q> <Esc>
 vnoremap <C-q> <Esc>
 nnoremap <C-q> :q<CR>
+"
+inoremap <C-l> <Del>
 "## Movement
 nnoremap L $
 xnoremap L $<left>
@@ -52,6 +54,18 @@ nnoremap J <C-f>zz
 nnoremap K <C-b>zz
 nnoremap H ^
 xnoremap H ^
+"### Tab Movement
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 "## Move/duplicate selected line
 nnoremap <A-k> :m-2<CR>
 nnoremap <A-j> :m+1<CR>
