@@ -1,3 +1,11 @@
+"# Plugins
+call plug#begin()
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Searching
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tomasiser/vim-code-dark'
+call plug#end()
+
 " General configs
 let mapleader=" "
 set number
@@ -5,12 +13,20 @@ set relativenumber
 set shiftwidth=4 smarttab
 set expandtab
 set tabstop=8 softtabstop=0
+set so=999 
 nnoremap <SPACE> <Nop>
 vnoremap <SPACE> <Nop>
+" set background=dark
+set t_Co=256
+set t_ut=
+colorscheme codedark
+" timeout delay
+set timeoutlen=505
+set ttimeoutlen=0
 
 " Commands
 command So :source ~/.vimrc
-
+"
 " Mapping Ubuntus Alt key ^[ + movement 
 map <Esc>j <A-j>
 map <Esc>k <A-k>
@@ -25,6 +41,13 @@ let g:netrw_winsize = 15
 
 
 "# Key maps
+"## Movement
+nnoremap <leader>l $
+xnoremap <leader>l $<Left>
+nnoremap J <C-f>zz
+nnoremap K <C-b>zz
+nnoremap <leader>h ^
+xnoremap <leader>h ^
 "## Move/duplicate selected line
 nnoremap <A-k> :m-2<CR>
 nnoremap <A-j> :m+1<CR>
@@ -38,8 +61,8 @@ xnoremap <A-J> Ygv<Esc>p`[v`]
 nnoremap <leader>" ciw"<Esc>pa"<Esc>
 
 
-nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
+nnoremap <leader>o o<Esc>
 
 "## Files
 nnoremap <C-s> :w<CR>
@@ -54,7 +77,11 @@ let g:VM_maps['Find Subword Under']     = '<C-d>'
 let g:VM_maps['Select Cursor Up']       = '<C-k>'
 let g:VM_maps['Select Cursor Down']     = '<C-j>'
 
-"# Plugins
-call plug#begin()
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-call plug#end()
+"## Fzf
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
