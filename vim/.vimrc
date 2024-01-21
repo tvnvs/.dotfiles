@@ -16,7 +16,7 @@ set tabstop=8 softtabstop=0
 set so=999 
 nnoremap <SPACE> <Nop>
 vnoremap <SPACE> <Nop>
-" set background=dark
+set background=dark
 set t_Co=256
 set t_ut=
 colorscheme codedark
@@ -57,12 +57,23 @@ xnoremap <A-k> :m-2<CR>gv
 xnoremap <A-j> :m'>+<CR>gv
 xnoremap <A-K> YP`[v`]
 xnoremap <A-J> Ygv<Esc>p`[v`]
-"## souround current word with \"
+"## souround current word/selection
 nnoremap <leader>" ciw"<Esc>pa"<Esc>
+nnoremap <leader>' ciw'<Esc>pa'<Esc>
+nnoremap <leader>( ciw(<Esc>pa)<Esc>
+nnoremap <leader>{ ciw{<Esc>pa}<Esc>
+nnoremap <leader>[ ciw[<Esc>pa]<Esc>
+
+xnoremap <leader>" xA"<CR>"<Esc>P
+xnoremap <leader>' xA'<CR>'<Esc>P
+xnoremap <leader>( xA(<CR>)<Esc>P
+xnoremap <leader>{ xA{<CR>}<Esc>P
+xnoremap <leader>[ xA[<CR>]<Esc>P
 
 
 nnoremap <leader>O O<Esc>
 nnoremap <leader>o o<Esc>
+nnoremap <leader><SPACE> i<SPACE><Esc>
 
 "## Files
 nnoremap <C-s> :w<CR>
