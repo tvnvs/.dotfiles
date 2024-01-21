@@ -1,8 +1,8 @@
 #!/bin/bash
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-original_files=(.bashrc .bash_profile .bash_aliases     .vimrc      .tmux.conf)
-target_files=  (.bashrc .bash_profile .bash_aliases vim/.vimrc tmux/.tmux.conf)
+original_files=(.bashrc .bash_profile .bash_aliases     .vimrc     .vim      .tmux.conf)
+target_files=(.bashrc .bash_profile .bash_aliases vim/.vimrc vim/.vim tmux/.tmux.conf)
 backup_dir="$SCRIPT_DIR/old/"
 [ ! -d $backup_dir ] && mkdir $backup_dir 
 
@@ -14,8 +14,8 @@ fi
 for i in ${!original_files[@]}; do
   of=~/${original_files[$i]}
   tf="$SCRIPT_DIR/${target_files[$i]}"
-  if [ -f $tf ]; then
-    if [ -f $of ]; then
+  if [ -e $tf ]; then
+    if [ -e $of ]; then
       if [[ -L $of ]]; then
         echo "$of is a link to $(realpath "$of"), skipping"
         continue
@@ -26,6 +26,8 @@ for i in ${!original_files[@]}; do
     fi
     ln -s "$tf" "$of"
     echo "$of -> $tf"
+  else
+    echo "$tf does not exist" 
   fi
 done
 
