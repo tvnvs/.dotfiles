@@ -47,14 +47,14 @@ nnoremap <C-s> :w<CR>
 nnoremap <leader>dd :Lexplore %:p:h<CR>
 nnoremap <leader>da :Lexplore<CR>
 "## Vim Visual Mulit
-" let g:VM_default_mappings = 0
-" let g:VM_maps['find under']             = '<c-d>'       " replace c-n
-" let g:VM_maps = {}
-" let g:VM_maps['find subword under']     = '<c-d>'       " replace c-n
-" let g:VM_maps['Select Cursor Up']       = '<C-k>'      " replace C-n
-" let g:vm_maps['select cursor down']     = '<c-j>'    " replace c-n
+"let g:VM_default_mappings = 0
+let g:VM_maps = {}
+let g:VM_maps['Find Under']             = '<C-d>'
+let g:VM_maps['Find Subword Under']     = '<C-d>'
+let g:VM_maps['Select Cursor Up']       = '<C-k>'
+let g:VM_maps['Select Cursor Down']     = '<C-j>'
 
 "# Plugins
 call plug#begin()
-"Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
