@@ -1,5 +1,6 @@
 "# Plugins
 call plug#begin()
+Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Searching
 Plug 'tomasiser/vim-code-dark'
@@ -76,11 +77,21 @@ xnoremap <A-j> :m'>+<CR>gv
 xnoremap <A-K> YP`[v`]
 xnoremap <A-J> Ygv<Esc>p`[v`]
 "## souround current word/selection
-nnoremap <leader>" ciw"<Esc>pa"<Esc>
-nnoremap <leader>' ciw'<Esc>pa'<Esc>
-nnoremap <leader>( ciw(<Esc>pa)<Esc>
-nnoremap <leader>{ ciw{<Esc>pa}<Esc>
-nnoremap <leader>[ ciw[<Esc>pa]<Esc>
+" nnoremap <leader>" ciw"<Esc>pa"<Esc>
+" nnoremap <leader>' ciw'<Esc>pa'<Esc>
+" nnoremap <leader>( ciw(<Esc>pa)<Esc>
+" nnoremap <leader>{ ciw{<Esc>pa}<Esc>
+" nnoremap <leader>[ ciw[<Esc>pa]<Esc>
+nnoremap <leader>" :execute "normal \<Plug>Ysurroundiw\""<CR>
+nnoremap <leader>s" :execute "normal \<Plug>Yssurround\""<CR>
+nnoremap <leader>' :execute "normal \<Plug>Ysurroundiw'"<CR>
+nnoremap <leader>s' :execute "normal \<Plug>Yssurroundw'"<CR>
+nnoremap <leader>( :execute "normal \<Plug>Ysurroundiw)"<CR>
+nnoremap <leader>s( :execute "normal \<Plug>Yssurroundw)"<CR>
+nnoremap <leader>{ :execute "normal \<Plug>Ysurroundiw}"<CR>
+nnoremap <leader>s{ :execute "normal \<Plug>Yssurroundw}"<CR>
+nnoremap <leader>[ :execute "normal \<Plug>Ysurroundiw]"<CR>
+nnoremap <leader>s[ :execute "normal \<Plug>Yssurroundw]"<CR>
 
 xnoremap <leader>" xA"<CR>"<Esc>P
 xnoremap <leader>' xA'<CR>'<Esc>P
