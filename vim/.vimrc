@@ -2,8 +2,8 @@
 call plug#begin()
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Searching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tomasiser/vim-code-dark'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 " General configs
@@ -41,13 +41,17 @@ let g:netrw_winsize = 15
 
 
 "# Key maps
+"## Global
+inoremap <C-q> <Esc>
+vnoremap <C-q> <Esc>
+nnoremap <C-q> :q<CR>
 "## Movement
-nnoremap <leader>l $
-xnoremap <leader>l $<Left>
+nnoremap L $
+xnoremap L $<left>
 nnoremap J <C-f>zz
 nnoremap K <C-b>zz
-nnoremap <leader>h ^
-xnoremap <leader>h ^
+nnoremap H ^
+xnoremap H ^
 "## Move/duplicate selected line
 nnoremap <A-k> :m-2<CR>
 nnoremap <A-j> :m+1<CR>
